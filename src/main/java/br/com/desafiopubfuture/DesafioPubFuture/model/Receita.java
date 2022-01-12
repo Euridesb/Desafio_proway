@@ -19,14 +19,14 @@ public class Receita {
     }
 
     public Receita(int id, BigDecimal valor, String dataRecebimento, String dataRecebimentoEsperado,
-                   String descricao, BigDecimal conta, String tipoReceita ) {
+                   String descricao, BigDecimal conta, String receita, String tipoReceita ) {
         this.id = id;
         this.valor = valor;
         this.dataRecebimento = dataRecebimento;
         this.dataRecebimentoEsperado = dataRecebimentoEsperado;
         this.descricao = descricao;
         this.conta = conta;
-
+        this.receita = receita;
         this.tipoReceita = tipoReceita;
     }
     @Id

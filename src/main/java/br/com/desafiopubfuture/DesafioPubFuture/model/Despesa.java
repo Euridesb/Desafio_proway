@@ -12,7 +12,6 @@ public class Despesa {
     private String dataPagamentoEsperado;
     private BigDecimal tipoDespesa;
     private BigDecimal conta;
-
     public Despesa() {
     }
 
