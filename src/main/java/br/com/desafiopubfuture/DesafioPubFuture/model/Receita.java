@@ -12,6 +12,7 @@ public class Receita {
     private String dataRecebimentoEsperado;
     private String descricao;
     private BigDecimal conta;
+    private String receita;
     private String tipoReceita;
 
     public Receita() {
@@ -25,7 +26,8 @@ public class Receita {
         this.dataRecebimentoEsperado = dataRecebimentoEsperado;
         this.descricao = descricao;
         this.conta = conta;
-        this.tipoReceita = tipoReceita
+
+        this.tipoReceita = tipoReceita;
     }
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -76,6 +78,14 @@ public class Receita {
 
     public void setConta(BigDecimal conta) {
         this.conta = conta;
+    }
+
+    public String getReceita() {
+        return receita;
+    }
+
+    public void setReceita(String receita) {
+        this.receita = receita;
     }
 
     public String getTipoReceita() {

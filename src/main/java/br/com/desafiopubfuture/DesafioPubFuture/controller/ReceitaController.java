@@ -32,18 +32,18 @@ public class ReceitaController {
     }
     @PostMapping("/")
     public void add(@RequestBody Receita receita) {
-        System.out.println(receita.getvalor());
-        System.out.println(receita.getdataRecebimento());
-        System.out.println(receita.getdataRecebimentoEsperado());
-        System.out.println(receita.getdescrição());
-        System.out.println(receita.getconta());
-        System.out.println(receita.gettipoReceita());
-        contaService.saveConta(conta);
+        System.out.println(receita.getValor());
+        System.out.println(receita.getDataRecebimento());
+        System.out.println(receita.getDataRecebimentoEsperado());
+        System.out.println(receita.getDescricao());
+        System.out.println(receita.getReceita());
+        System.out.println(receita.getTipoReceita());
+        receitaService.saveReceita(receita);
     }
     @PutMapping("/{id}")
     public ResponseEntity<?> update(@RequestBody Receita receita, @PathVariable Integer id) {
         try {
-            Receita existConta = receitaService.getReceita(id);
+            Receita existReceita = receitaService.getReceita(id);
             receita.setId(id);
             receitaService.saveReceita(receita);
             return new ResponseEntity<>(HttpStatus.OK);
@@ -54,6 +54,6 @@ public class ReceitaController {
     @DeleteMapping("/{id}")
     public void delete(@PathVariable Integer id) {
 
-        contaService.deleteConta(id);
+        receitaService.deleteReceita(id);
     }
 }

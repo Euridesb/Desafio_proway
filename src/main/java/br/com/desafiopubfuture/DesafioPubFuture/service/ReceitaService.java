@@ -11,7 +11,7 @@ import java.util.List;
 @Transactional
 public class ReceitaService {
     @Autowired
-    private ReceitaRepository contaRepository;
+    private ReceitaRepository receitaRepository;
     public List<Receita> listAllReceitas() {
         return receitaRepository.findAll();
     }
