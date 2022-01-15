@@ -1,53 +1,29 @@
 package br.com.desafiopubfuture.DesafioPubFuture.model;
 
-import javax.persistence.*;
+import com.fasterxml.jackson.annotation.JsonFormat;
+import lombok.Data;
+
 import java.math.BigDecimal;
 import java.time.LocalDate;
-
-
-import br.com.desafiopubfuture.DesafioPubFuture.model.Conta;
-import lombok.Getter;
-import lombok.Setter;
 import br.com.desafiopubfuture.DesafioPubFuture.model.ReceitaType;
 
-@Getter
-@Setter
-@Entity
-@Table(name = "receita")
-public class Receita {
+@Data
+public class ReceitaVM {
 
-    @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private int id;
     private BigDecimal valor;
     private LocalDate dataRecebimento;
     private LocalDate dataRecebimentoEsperado;
-    private String descricao;
-    @Enumerated(EnumType.STRING)
     private ReceitaType tipoReceita;
-    @ManyToOne
-    @JoinColumn(name="conta_id", nullable = false)
-    private Conta conta;
+    private String descricao;
+    private Integer conta_id;
 
-    public Receita() {
-    }
-
-    public Receita(int id, BigDecimal valor, LocalDate dataRecebimento, LocalDate dataRecebimentoEsperado, String descricao, ReceitaType tipoReceita, Conta conta) {
-        this.id = id;
+    public ReceitaVM(BigDecimal valor, LocalDate dataRecebimento, LocalDate dataRecebimentoEsperado, ReceitaType tipoReceita, String descricao, Integer conta_id) {
         this.valor = valor;
         this.dataRecebimento = dataRecebimento;
         this.dataRecebimentoEsperado = dataRecebimentoEsperado;
-        this.descricao = descricao;
         this.tipoReceita = tipoReceita;
-        this.conta = conta;
-    }
-
-    public int getId() {
-        return id;
-    }
-
-    public void setId(int id) {
-        this.id = id;
+        this.descricao = descricao;
+        this.conta_id = conta_id;
     }
 
     public BigDecimal getValor() {
@@ -82,12 +58,12 @@ public class Receita {
         this.tipoReceita = tipoReceita;
     }
 
-    public Conta getConta() {
-        return conta;
+    public Integer getConta_id() {
+        return conta_id;
     }
 
-    public void setConta(Conta conta) {
-        this.conta = conta;
+    public void setConta_id(Integer conta_id) {
+        this.conta_id = conta_id;
     }
 
     public String getDescricao() {
