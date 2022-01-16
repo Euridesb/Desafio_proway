@@ -1,6 +1,7 @@
 package br.com.desafiopubfuture.DesafioPubFuture.controller;
 
 import br.com.desafiopubfuture.DesafioPubFuture.model.Conta;
+import br.com.desafiopubfuture.DesafioPubFuture.model.SomaResponse;
 import br.com.desafiopubfuture.DesafioPubFuture.service.ContaService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
@@ -51,5 +52,11 @@ public class ContaController {
     public void delete(@PathVariable Integer id) {
 
         contaService.deleteConta(id);
+    }
+
+    @GetMapping("/soma")
+    @ResponseBody
+    public SomaResponse soma(){
+        return new SomaResponse(contaService.calculaSomaTotal());
     }
 }

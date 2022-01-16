@@ -3,6 +3,7 @@ package br.com.desafiopubfuture.DesafioPubFuture.controller;
 import br.com.desafiopubfuture.DesafioPubFuture.model.Conta;
 import br.com.desafiopubfuture.DesafioPubFuture.model.Despesa;
 import br.com.desafiopubfuture.DesafioPubFuture.model.DespesaVM;
+import br.com.desafiopubfuture.DesafioPubFuture.model.SomaResponse;
 import br.com.desafiopubfuture.DesafioPubFuture.service.DespesaService;
 import br.com.desafiopubfuture.DesafioPubFuture.service.ContaService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -75,5 +76,17 @@ public class DespesaController {
     public void delete(@PathVariable Integer id) {
 
         despesaService.deleteDespesa(id);
+    }
+
+    @GetMapping("/total")
+    @ResponseBody
+    public SomaResponse total(){
+        return new SomaResponse(despesaService.somaTotal());
+    }
+
+    @GetMapping("/tipo/{tipo}")
+    @ResponseBody
+    public List<Despesa> listByType(@PathVariable String tipo){
+        return despesaService.listByType(tipo);
     }
 }

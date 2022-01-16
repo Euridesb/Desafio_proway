@@ -76,4 +76,16 @@ public class ReceitaController {
 
         receitaService.deleteReceita(id);
     }
+
+    @GetMapping("/total")
+    @ResponseBody
+    public SomaResponse total(){
+        return new SomaResponse(receitaService.somaTotal());
+    }
+
+    @GetMapping("/tipo/{tipo}")
+    @ResponseBody
+    public List<Receita> listByType(@PathVariable String tipo){
+        return receitaService.listByType(tipo);
+    }
 }

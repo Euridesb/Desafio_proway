@@ -14,6 +14,8 @@ public class Conta {
     private int id;
     private BigDecimal saldo;
     private String instituicaoFinanceira;
+    @Enumerated(EnumType.STRING)
+    private ContaType tipo;
     @OneToMany(mappedBy = "conta")
     private List<Despesa> despesaList;
     @OneToMany(mappedBy = "conta")
@@ -51,5 +53,11 @@ public class Conta {
         this.instituicaoFinanceira = instituicaoFinanceira;
     }
 
+    public ContaType getTipo() {
+        return tipo;
+    }
 
+    public void setTipo(ContaType tipo) {
+        this.tipo = tipo;
+    }
 }
